@@ -27,7 +27,7 @@ public class CurrencyController {
     }
 
     @GetMapping("/getCurrency/{code}")
-    @ApiOperation(value = "Получение курса определенно валюты на текущий день")
+    @ApiOperation(value = "Получение курса определенной валюты на текущий день")
     public ValuteCursOnDate getCourseForCurrency(@PathVariable String code) throws Exception {
         return centralRussianBankService.getCourseForCurrency(code);
     }
@@ -36,5 +36,11 @@ public class CurrencyController {
     @ApiOperation(value = "Получение количества пополнений, которые превышают определённую сумму")
     public int getStatsAboutIncomesThatGreater(@RequestParam(value = "amount") BigDecimal amount) {
         return statsService.getCountOfIncomesThatGreater(amount);
+    }
+
+    @GetMapping("/getSpending")
+    @ApiOperation(value = "Получение количества трат, которые превышают определённую сумму")
+    public int getStatsAboutSpendingThatGreater(@RequestParam(value = "amount") BigDecimal amount) {
+        return statsService.getCountOfSpendingThatGreater(amount);
     }
 }
