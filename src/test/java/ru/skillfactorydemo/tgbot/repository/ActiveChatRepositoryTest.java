@@ -16,7 +16,7 @@ class ActiveChatRepositoryTest {
     private ActiveChatRepository activeChatRepository;
 
     @Test
-    public void testRepo_found() {
+    public void testRepoFound() {
         final ActiveChat activeChat = new ActiveChat();
         activeChat.setChatId(12345L);
         activeChatRepository.save(activeChat);
@@ -26,7 +26,7 @@ class ActiveChatRepositoryTest {
     }
 
     @Test
-    public void testRepo_notFound() {
+    public void testRepoNotFound() {
         final ActiveChat activeChat = new ActiveChat();
         activeChat.setChatId(12345L);
         activeChatRepository.save(activeChat);
